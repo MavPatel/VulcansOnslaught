@@ -2,18 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour
+{
 
-    float speed = 10.5f;
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(Vector2.down * speed * Time.deltaTime,Space.World);
-        }else if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(Vector2.left * speed * Time.deltaTime, Space.World);
-        }
-	}
+    public float speed = 20.5f;
+    Vector2 movement;
+    void Update()
+    {
+        float inputX = Input.GetAxisRaw("Horizontal");
+        float inputY = Input.GetAxis("Vertical");
+        movement = new Vector2(inputX, inputY);
+        Movement(inputX,inputY,movement);
+    }
+
+
+    void Movement(float inputx, float inputy, Vector2 movement)
+    {
+        transform.Translate(movement * speed * Time.deltaTime);
+    }
 }
+
