@@ -8,10 +8,11 @@ public class Player_Shooting : MonoBehaviour {
     public float velocity;
     public float spread;
     public bool canShoot;
-    public float waitTime = 0.1f;
+    Vector2 shootDirection;
+    public float waitTime = 0.01f;
 	// Use this for initialization
 	void Start () {
-        velocity =  Random.Range(500f, 1000f);
+        velocity =  5f;
         spread = Random.Range(0f, 1f);
         canShoot = true;
 	}
@@ -38,7 +39,7 @@ public class Player_Shooting : MonoBehaviour {
         direction.Normalize();
         GameObject CBullet = (GameObject)Instantiate(bullet, transform.position, rotation);
         CBullet.transform.localPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z + 20);
-        CBullet.GetComponent<Rigidbody2D>().velocity = direction * velocity;
+     
         canShoot = false;
         yield return new WaitForSeconds(waitTime);
         canShoot = true;
