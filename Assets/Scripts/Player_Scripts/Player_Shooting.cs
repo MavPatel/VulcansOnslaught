@@ -31,10 +31,9 @@ public class Player_Shooting : MonoBehaviour {
 
     public IEnumerator MakeBullet()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        Vector2 direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-        var rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x));
+        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         direction.Normalize();
         GameObject CBullet = (GameObject)Instantiate(bullet, transform.position, rotation);
         CBullet.transform.localPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z + 20);
