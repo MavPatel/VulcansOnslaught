@@ -11,6 +11,6 @@ public class YAxisSort : MonoBehaviour {
 	
 	
 	void LateUpdate () {
-        sprite.sortingOrder = (int)transform.position.y;
+        sprite.sortingOrder = -(int)transform.position.y;
 	}
 }
