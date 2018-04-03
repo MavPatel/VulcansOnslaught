@@ -4,13 +4,41 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public static GameManagerScript Instance { get; private set; }
+
+    public int maxHealth = 4;
+    public int health;
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void Start()
+    {
+        health = maxHealth;
+    }
+
+    public void SetHealth(int SetAmmount)
+    {
+        health = SetAmmount;
+        Mathf.Clamp(health, 0, maxHealth);
+    }
+    public void SetHealth(int AddAmmount,int useless)
+    {
+        health += AddAmmount;
+        Mathf.Clamp(health, 0, maxHealth);
+    }
+
+    public int GetHealth()
+    {
+        return health;
+    }
 }
