@@ -17,8 +17,8 @@ TagManager:
   - Background
   - Midground
   - Foreground
-  - 
-  - 
+  - Player
+  - Bullet
   - 
   - 
   - 
@@ -41,6 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Floor
+    uniqueID: 1545144199
+    locked: 0
   - name: Shadow
     uniqueID: 399570939
+    locked: 0
+  - name: Midground
+    uniqueID: 2952678493
+    locked: 0
+  - name: Arm
+    uniqueID: 3622931469
     locked: 0

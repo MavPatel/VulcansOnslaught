@@ -5,20 +5,27 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
 
-    public float speed = 20.5f;
+    public float speed = 5f;
     Vector2 movement;
-    void Update()
+    private Rigidbody2D rigid;
+
+    private void Start()
     {
-        float inputX = Input.GetAxisRaw("Horizontal");
-        float inputY = Input.GetAxis("Vertical");
-        movement = new Vector2(inputX, inputY);
-        Movement(inputX,inputY,movement);
+        rigid = GetComponent<Rigidbody2D>();
+    }
+    void FixedUpdate()
+    {
+        
+        Movement();
     }
 
 
-    void Movement(float inputx, float inputy, Vector2 movement)
+    void Movement()
     {
-        transform.Translate(movement * speed * Time.deltaTime);
+        float inputX = Input.GetAxisRaw("Horizontal");
+        float inputY = Input.GetAxisRaw("Vertical");
+        movement = new Vector2(inputX, inputY);
+        rigid.velocity = movement.normalized * speed;
     }
 }
 
