@@ -61,6 +61,7 @@ public class Player_Movement : MonoBehaviour
         }else if (Input.GetKey(KeyCode.D))
         {
             sprRend.flipX = false;
+            feetRend.flipX = false;
             right = true;
             down = false;
             up = false;
