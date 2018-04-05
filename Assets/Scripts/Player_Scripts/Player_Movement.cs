@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
 
-    public float speed = 5f;
+    public float speed = .2f;
     public float velocity;
     Vector2 movement;
     private Rigidbody2D rigid;
@@ -35,8 +35,20 @@ public class Player_Movement : MonoBehaviour
     {
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
+       
+
+        if(Input.GetAxisRaw("Horizontal") > 0 || Input.GetAxisRaw("Vertical") > 0 || Input.GetAxisRaw("Horizontal") < 0 || Input.GetAxisRaw("Vertical") < 0)
+        {
+            velocity += speed;
+        }
+        else
+        {
+            velocity = 0;
+        }
+
+        velocity = Mathf.Clamp(velocity, 0, 100);
         movement = new Vector2(inputX, inputY);
-        rigid.velocity = movement.normalized * speed;
+        rigid.velocity = movement.normalized * velocity;
 
         if (Input.GetKey(KeyCode.S))
         {
@@ -75,7 +87,7 @@ public class Player_Movement : MonoBehaviour
         bodyAnim.SetBool("FacingRight", right);
         feetAnim.SetBool("FacingRight", right);
         feetAnim.SetBool("FacingDown", down);
-        //feetAnim.SetFloat("Speed", Input.GetAxisRaw("Horizontal"));
+        feetAnim.SetFloat("Speed", velocity);
     }
 }
 
