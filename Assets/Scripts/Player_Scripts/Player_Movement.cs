@@ -9,8 +9,6 @@ public class Player_Movement : MonoBehaviour
     public float velocity;
     Vector2 movement;
     private Rigidbody2D rigid;
-    private Animator bodyAnim;
-    public Animator feetAnim;
     private SpriteRenderer sprRend;
     public SpriteRenderer feetRend;
 
@@ -20,13 +18,13 @@ public class Player_Movement : MonoBehaviour
     private bool up = false;
     private void Start()
     {
-        bodyAnim = GetComponent<Animator>();
+       
         rigid = GetComponent<Rigidbody2D>();
         sprRend = GetComponent<SpriteRenderer>();
     }
     void FixedUpdate()
     {
-        Animate();
+       
         Movement();
     }
 
@@ -64,16 +62,14 @@ public class Player_Movement : MonoBehaviour
             right = false;
         }else if (Input.GetKey(KeyCode.A))
         {
-            sprRend.flipX = true;
-            feetRend.flipX = true;
+            
             left = true;
             right = true;
             up = false;
             down = false;
         }else if (Input.GetKey(KeyCode.D))
         {
-            sprRend.flipX = false;
-            feetRend.flipX = false;
+            
             right = true;
             down = false;
             up = false;
@@ -81,13 +77,6 @@ public class Player_Movement : MonoBehaviour
         }
     }
 
-    void Animate()
-    {
-        bodyAnim.SetBool("FacingDown", down);
-        bodyAnim.SetBool("FacingRight", right);
-        feetAnim.SetBool("FacingRight", right);
-        feetAnim.SetBool("FacingDown", down);
-        feetAnim.SetFloat("Speed", velocity);
-    }
+ 
 }
 
