@@ -25,11 +25,11 @@ public class Player_Shooting : MonoBehaviour {
         canShoot = true;
 	}
 	
-	// Update is called once per frame
+
 	void Update () {
 
 
-        if (Input.GetMouseButton(1))// && canShoot && !Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
             charge += 0.1f;
 
