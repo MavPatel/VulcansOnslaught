@@ -5,12 +5,12 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
 
-    public float speed = 5f;
+    public float speed = .2f;
     public float velocity;
     Vector2 movement;
     private Rigidbody2D rigid;
-    private Animator bodyAnim;
-    public Animator feetAnim;
+    private Animator anim;
+    public Animator animHead;
     private SpriteRenderer sprRend;
     public SpriteRenderer feetRend;
 
@@ -20,14 +20,16 @@ public class Player_Movement : MonoBehaviour
     private bool up = false;
     private void Start()
     {
-        bodyAnim = GetComponent<Animator>();
+       
         rigid = GetComponent<Rigidbody2D>();
         sprRend = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
     void FixedUpdate()
     {
-        Animate();
+       
         Movement();
+        MouseAnim();
     }
 
 
@@ -35,47 +37,63 @@ public class Player_Movement : MonoBehaviour
     {
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
-        movement = new Vector2(inputX, inputY);
-        rigid.velocity = movement.normalized * speed;
+       
 
-        if (Input.GetKey(KeyCode.S))
+        if(Input.GetAxisRaw("Horizontal") > 0 || Input.GetAxisRaw("Vertical") > 0 || Input.GetAxisRaw("Horizontal") < 0 || Input.GetAxisRaw("Vertical") < 0)
         {
-            down = true;
-            up = false;
-            left = false;
-            right = false;
-        }else if (Input.GetKey(KeyCode.W))
+            velocity += speed;
+        }
+        else
         {
-            up = true;
-            down = false;
-            left = false;
-            right = false;
-        }else if (Input.GetKey(KeyCode.A))
+            velocity = 0;
+        }
+
+        velocity = Mathf.Clamp(velocity, 0, 100);
+        movement = new Vector2(inputX, inputY);
+        rigid.velocity = movement.normalized * velocity;
+
+        if (inputX > 0 || inputX < 0 || inputY > 0 || inputY < 0)
         {
-            sprRend.flipX = true;
-            feetRend.flipX = true;
-            left = true;
-            right = true;
-            up = false;
-            down = false;
-        }else if (Input.GetKey(KeyCode.D))
+            anim.SetFloat("x", inputX);
+            anim.SetFloat("y", inputY);
+        }
+     
+
+        if(velocity > 0)
         {
+<<<<<<< HEAD
             sprRend.flipX = false;
             feetRend.flipX = false;
             right = true;
             down = false;
             up = false;
             left = false;
+=======
+            anim.SetBool("isWalking", true);
+>>>>>>> Manav
         }
+        else
+        {
+            anim.SetBool("isWalking", false);
+        }
+
+        
+       
     }
 
-    void Animate()
+    void MouseAnim()
     {
-        bodyAnim.SetBool("FacingDown", down);
-        bodyAnim.SetBool("FacingRight", right);
-        feetAnim.SetBool("FacingRight", right);
-        feetAnim.SetBool("FacingDown", down);
-        //feetAnim.SetFloat("Speed", Input.GetAxisRaw("Horizontal"));
+       
+        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90;
+
+
+        
+        animHead.SetFloat("x", Mathf.FloorToInt(angle / 90));
+        animHead.SetFloat("y", Mathf.FloorToInt(angle / 90));
+
     }
+
+ 
 }
 
