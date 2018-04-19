@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 61880998607224908}
   m_Layer: 0
   m_Name: Door_Side
-  m_TagString: Untagged
+  m_TagString: Enviroment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,8 +72,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1639357725301020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.060728, y: -6.8883095, z: 10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 99.80264, y: 20.19, z: 10}
+  m_LocalScale: {x: 1, y: 1.0235455, z: 1}
   m_Children:
   - {fileID: 4868672941517746}
   - {fileID: 4541505623214814}

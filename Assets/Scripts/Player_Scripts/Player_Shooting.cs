@@ -17,6 +17,7 @@ public class Player_Shooting : MonoBehaviour {
     private float timer;
     [SerializeField]
     private float MaxTimer = 1f;
+    public Vector3 ChargedScale;
 
 	// Use this for initialization
 	void Start () {
@@ -50,7 +51,7 @@ public class Player_Shooting : MonoBehaviour {
         {
             charge = 0f;
             Debug.Log("Fired");
-            StartCoroutine(MakeBullet(new Vector3(20, 20, 1)));
+            StartCoroutine(MakeBullet(ChargedScale));
         }else if(Input.GetMouseButtonUp(1) && charge < MaxTimer)
         {
             charge = 0f;
@@ -60,7 +61,7 @@ public class Player_Shooting : MonoBehaviour {
 
         else if(Input.GetMouseButton(0) && canShoot && !Input.GetMouseButton(1))
         {
-            StartCoroutine(MakeBullet(new Vector3(5,5,1)));
+            StartCoroutine(MakeBullet(new Vector3(1,1,1)));
         }
 	}
 
@@ -68,7 +69,7 @@ public class Player_Shooting : MonoBehaviour {
     {
         Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        Quaternion rotation = Quaternion.AngleAxis(angle + 90f, Vector3.forward);
         direction.Normalize();
         GameObject CBullet = (GameObject)Instantiate(bullet, transform.position, rotation);
         CBullet.transform.localPosition = BulletSpawner.transform.position;

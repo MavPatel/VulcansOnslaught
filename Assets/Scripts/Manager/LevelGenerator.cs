@@ -35,7 +35,7 @@ public class LevelGenerator : MonoBehaviour {
             {
                 Vector3 position;
                
-                position = new Vector3(x * 16, y * 13.8f, transform.position.z + 10);
+                position = new Vector3(x * 16, y * 13.5f, transform.position.z + 10);
                
                 
                 Instantiate(colorMap.prefab,position,Quaternion.identity,transform);
