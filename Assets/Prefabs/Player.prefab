@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7bd406e9afc314790e8b3f484070db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  w: 720
+  w: 640
   cam: {fileID: 20462148440913108}
 --- !u!114 &114262854430314196
 MonoBehaviour:
@@ -547,7 +547,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3e5b3aeef7a1e5f43aa41e1368d46f4d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
