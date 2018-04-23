@@ -80,8 +80,8 @@ public class Player_Movement : MonoBehaviour
 
 
         
-        animHead.SetFloat("x", (angle / 90));
-        animHead.SetFloat("y", (angle / 90));
+        animHead.SetFloat("x", Mathf.FloorToInt(angle / 90));
+        animHead.SetFloat("y", Mathf.FloorToInt(angle / 90));
 
     }
 
