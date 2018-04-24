@@ -4,24 +4,32 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-    private int health;
-    private int attackSpeed;
-    private int damage;
-    private int moveSpeed;
+    public int health;
+    public  int attackSpeed;
+    public int damage;
+    public int moveSpeed;
+    public int movementNumber = 0;
 
-	public Enemy(int health,int attackSpeed,int damage, int moveSpeed)
+
+    public void ChangeHealth(int ammount)
     {
-        this.health = health;
-        this.attackSpeed = attackSpeed;
-        this.damage = damage;
-        this.moveSpeed = moveSpeed;
+        health -= ammount;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+       
     }
 
-    public void PrintStats()
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(health);
-        Debug.Log(attackSpeed);
-        Debug.Log(damage);
-        Debug.Log(moveSpeed);
+
+        if (collision.gameObject.tag == "Bullet")
+        {
+            ChangeHealth(collision.gameObject.GetComponent<Bullet>().damage);
+            Debug.Log(health);
+        }
     }
+
 }

@@ -72,7 +72,9 @@ public class Player_Shooting : MonoBehaviour {
         Quaternion rotation = Quaternion.AngleAxis(angle + 90f, Vector3.forward);
         direction.Normalize();
         GameObject CBullet = (GameObject)Instantiate(bullet, transform.position, rotation);
+        CBullet.GetComponent<Bullet>().damage = Mathf.FloorToInt(scale.x);
         CBullet.transform.localPosition = BulletSpawner.transform.position;
+        
         CBullet.transform.localScale = scale;
         CBullet.GetComponent<Rigidbody2D>().velocity = direction * velocity;
         canShoot = false;

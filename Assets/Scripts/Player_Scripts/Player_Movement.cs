@@ -13,11 +13,6 @@ public class Player_Movement : MonoBehaviour
     public Animator animHead;
     private SpriteRenderer sprRend;
     public SpriteRenderer feetRend;
-
-    private bool right = true;
-    private bool left = false;
-    private bool down = true;
-    private bool up = false;
     private void Start()
     {
        

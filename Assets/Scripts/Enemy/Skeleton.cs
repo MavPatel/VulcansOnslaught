@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Skeleton : Enemy {
 
-	public Skeleton(int health, int attackSpeed, int damage, int moveSpeed) : base(health,attackSpeed,damage,moveSpeed)
+
+    private void Awake()
     {
-        base.PrintStats();
+        health = 4;
+        attackSpeed = 2;
+        damage = 2;
+        moveSpeed = 5;
     }
 }
