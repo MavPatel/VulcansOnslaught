@@ -61,16 +61,8 @@ public class Player_Movement : MonoBehaviour
 
         if(velocity > 0)
         {
-<<<<<<< HEAD
-            sprRend.flipX = false;
-            feetRend.flipX = false;
-            right = true;
-            down = false;
-            up = false;
-            left = false;
-=======
+
             anim.SetBool("isWalking", true);
->>>>>>> Manav
         }
         else
         {
