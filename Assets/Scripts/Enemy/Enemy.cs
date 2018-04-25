@@ -10,12 +10,12 @@ public class Enemy : MonoBehaviour {
     public int damage;
     public int moveSpeed;
     public int movementNumber = 0;
-    public bool triggered = false;
     private Rigidbody2D rigid;
+    public Transform target;
 
-
-    public void Awake()
+    public void Start()
     {
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         rigid = GetComponent<Rigidbody2D>();
     }
 
@@ -31,16 +31,27 @@ public class Enemy : MonoBehaviour {
        
     }
 
-    public void Trigger(GameObject target)
+    public void Update()
     {
-        triggered = true;
+    
+        if(Vector3.Distance(transform.position,target.position) < 100)
+        {
+            rigid.MovePosition(Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime));
+
+        }
+
+    }
+
+    public void Trigger()
+    {
+
+       
         
-        transform.position += (target.transform.position - transform.position).normalized * moveSpeed * Time.deltaTime;
     }
 
     public void Chill()
     {
-        triggered = false;
+      
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

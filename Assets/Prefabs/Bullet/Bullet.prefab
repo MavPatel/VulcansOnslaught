@@ -19,11 +19,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4426815151872692}
-  - component: {fileID: 50134701246875126}
   - component: {fileID: 61630048058125172}
   - component: {fileID: 212326186128224666}
   - component: {fileID: 114476784408657878}
   - component: {fileID: 114974972551333638}
+  - component: {fileID: 50683453574022532}
   m_Layer: 13
   m_Name: Bullet
   m_TagString: Bullet
@@ -44,21 +44,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50134701246875126
+--- !u!50 &50683453574022532
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1781521325261186}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 1
+  m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

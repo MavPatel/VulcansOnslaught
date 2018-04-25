@@ -10,6 +10,6 @@ public class Skeleton : Enemy {
         health = 4;
         attackSpeed = 2;
         damage = 2;
-        moveSpeed = 5;
+        moveSpeed = 15;
     }
 }
