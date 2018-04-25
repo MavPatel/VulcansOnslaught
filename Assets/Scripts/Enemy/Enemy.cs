@@ -12,10 +12,12 @@ public class Enemy : MonoBehaviour {
     public int movementNumber = 0;
     private Rigidbody2D rigid;
     public Transform target;
+    private Animator anim;
 
     public void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
     }
 
@@ -31,28 +33,40 @@ public class Enemy : MonoBehaviour {
        
     }
 
+    
+
     public void Update()
     {
-    
-        if(Vector3.Distance(transform.position,target.position) < 100)
+
+
+
+
+
+
+
+
+
+
+        if (Vector3.Distance(transform.position,target.position) < 100)
         {
+
+            Vector2 direction = target.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
+
+            anim.SetFloat("x", angle);
+            anim.SetFloat("y", angle);
+
+            anim.SetBool("isWalking", true);
             rigid.MovePosition(Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime));
 
         }
+        else
+        {
+            anim.SetBool("isWalking", false);
+        }
 
     }
-
-    public void Trigger()
-    {
-
-       
-        
-    }
-
-    public void Chill()
-    {
-      
-    }
+  
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
