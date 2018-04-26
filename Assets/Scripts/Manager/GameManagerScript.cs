@@ -30,11 +30,19 @@ public class GameManagerScript : MonoBehaviour {
     {
         health = SetAmmount;
         Mathf.Clamp(health, 0, maxHealth);
+        if(health <= 0)
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Player"));
+        }
     }
     public void SetHealth(int AddAmmount,int useless)
     {
         health += AddAmmount;
         Mathf.Clamp(health, 0, maxHealth);
+        if (health <= 0)
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Player"));
+        }
     }
 
     public int GetHealth()

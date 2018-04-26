@@ -11,5 +11,6 @@ public class Skeleton : Enemy {
         attackSpeed = 2;
         damage = 2;
         moveSpeed = 15;
+        startTime = 1f;
     }
 }

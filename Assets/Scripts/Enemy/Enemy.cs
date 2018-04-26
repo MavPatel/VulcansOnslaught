@@ -13,12 +13,16 @@ public class Enemy : MonoBehaviour {
     private Rigidbody2D rigid;
     public Transform target;
     private Animator anim;
-
+    public GameObject bullet;
+    private float timebtwshot;
+    public float startTime;
+    GameManagerScript game;
     public void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
+        game = GameObject.FindGameObjectWithTag("Manager").GetComponent<GameManagerScript>();
     }
 
 
@@ -30,6 +34,8 @@ public class Enemy : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+
+        timebtwshot = startTime;
        
     }
 
@@ -39,16 +45,17 @@ public class Enemy : MonoBehaviour {
     {
 
 
-
-
-
-
-
-
-
-
-        if (Vector3.Distance(transform.position,target.position) < 100)
+        if (Vector3.Distance(transform.position,target.position) < 100 && game.health != 0)
         {
+            if (timebtwshot <= 0)
+            {
+                Instantiate(bullet, transform.position, Quaternion.identity);
+                timebtwshot = startTime;
+            }
+            else
+            {
+                timebtwshot -= Time.deltaTime;
+            }
 
             Vector2 direction = target.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
@@ -70,6 +77,7 @@ public class Enemy : MonoBehaviour {
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+   
 
         if (collision.gameObject.tag == "Bullet")
         {
