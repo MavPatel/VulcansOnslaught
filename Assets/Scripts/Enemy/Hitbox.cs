@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hitbox : MonoBehaviour {
 
     private Skeleton skeleton;
-
+    
     public void Start()
     {
         skeleton = GetComponentInParent<Skeleton>();
