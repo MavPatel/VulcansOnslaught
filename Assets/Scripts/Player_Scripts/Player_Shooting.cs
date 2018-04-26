@@ -8,7 +8,7 @@ public class Player_Shooting : MonoBehaviour {
     public float velocity;
     public float spread;
     public bool canShoot;
-    public float waitTime = 0.1f;
+    public float waitTime = 0.3f;
     public Transform BulletSpawner;
     [SerializeField]
     private float charge;
