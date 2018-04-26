@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 124270277790771786}
   - component: {fileID: 81976246134225144}
   - component: {fileID: 114620643086386650}
+  - component: {fileID: 114904241990476420}
   m_Layer: 0
   m_Name: VirtualCamera
   m_TagString: MainCamera
@@ -99,6 +100,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   w: 640
   cam: {fileID: 20299519073978244}
+--- !u!114 &114904241990476420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1645884389561788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30e04bdc1f83fb145927a419085c9d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!124 &124270277790771786
 Behaviour:
   m_ObjectHideFlags: 1

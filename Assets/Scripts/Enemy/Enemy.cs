@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour {
     {
 
 
-        if (Vector3.Distance(transform.position,target.position) < 100 && game.health != 0)
+        if (game.health != 0 && Vector3.Distance(transform.position,target.position) < 100  )
         {
             if (timebtwshot <= 0)
             {

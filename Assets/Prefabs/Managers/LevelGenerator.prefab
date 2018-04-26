@@ -63,3 +63,5 @@ MonoBehaviour:
     prefab: {fileID: 1789174102263154, guid: bd25e4de6ab979241bdc83a172c1e1f2, type: 2}
   - color: {r: 1, g: 0, b: 0, a: 1}
     prefab: {fileID: 1470525171348774, guid: 4f15bbdbca91377429929c74f6959e08, type: 2}
+  - color: {r: 0, g: 0.11764706, b: 1, a: 1}
+    prefab: {fileID: 1645884389561788, guid: cc57d36da677d0548ae43e74aeafbe9a, type: 2}
