@@ -5,20 +5,16 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
 
+    public int damage;
 
 
-
-
-	// Use this for initialization
-	void Start () {
-
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enviroment" || collision.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
     }
-	
-	// Update is called once per frame
-	void Update () {
-        
-       
-	}
 
-  
+
 }
