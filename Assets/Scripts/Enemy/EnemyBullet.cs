@@ -9,6 +9,7 @@ public class EnemyBullet : MonoBehaviour {
     private Vector2 target;
     private Rigidbody2D rigid;
     GameManagerScript game;
+    //god is dead
    
     
     private void Start()
