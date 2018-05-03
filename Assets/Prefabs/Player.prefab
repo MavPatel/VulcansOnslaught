@@ -264,7 +264,7 @@ MonoBehaviour:
   velocity: 0
   spread: 0
   canShoot: 0
-  waitTime: 0.3
+  waitTime: 0.25
   BulletSpawner: {fileID: 4948245684258870}
   charge: 0
   chargeAdder: 0
