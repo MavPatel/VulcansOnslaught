@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f48f08ad667b14286a0bdbb4cf7ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  map: {fileID: 2800000, guid: c0273c34534fbab48a419798a41adeac, type: 3}
+  map: {fileID: 2800000, guid: 005931665ef3f804889e7bc517c88a44, type: 3}
   tiles:
   - color: {r: 0, g: 0, b: 0, a: 1}
     prefab: {fileID: 1756878370227822, guid: 068ef5faff86145448b81190137433d3, type: 2}

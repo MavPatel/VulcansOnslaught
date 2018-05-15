@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManagerScript : MonoBehaviour {
 
     public static GameManagerScript Instance { get; private set; }
+    public LevelManager levelmanager;
 
     public int maxHealth = 4;
     public int health;
@@ -23,6 +24,7 @@ public class GameManagerScript : MonoBehaviour {
     }
     private void Start()
     {
+        levelmanager = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelManager>();
         health = maxHealth;
     }
 
@@ -37,11 +39,13 @@ public class GameManagerScript : MonoBehaviour {
     }
     public void SetHealth(int AddAmmount,int useless)
     {
+
         health += AddAmmount;
         Mathf.Clamp(health, 0, maxHealth);
         if (health <= 0)
         {
-            Destroy(GameObject.FindGameObjectWithTag("Player"));
+            health = maxHealth;
+            levelmanager.ChangeLevel("GameOver");
         }
     }
 

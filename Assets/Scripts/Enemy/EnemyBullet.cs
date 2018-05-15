@@ -39,12 +39,12 @@ public class EnemyBullet : MonoBehaviour {
         if (collision.gameObject.tag == "Enviroment")
         {
             Destroy(gameObject);
-        }
-
-        if (collision.gameObject.tag == "Player")
+        }else if (collision.gameObject.tag == "Player")
         {
             game.SetHealth(-1, 1);
+            Destroy(gameObject);
         }
+       
     }
      
     
